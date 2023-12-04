@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-bs-theme="light"><!--begin::Head-->
+<head>
+        <title>Start HTML Pro - Bootstrap 5 HTML Multipurpose Admin Dashboard Template - Start HTML Pro by KeenThemes</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Check out all the features of the Start admin panel. A large number of templates, components and widgets.">
+        <meta name="keywords" content="Start, bootstrap, bootstrap 5, admin themes, free admin themes, bootstrap admin, bootstrap dashboard, html admin theme, html template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Start HTML Pro - Bootstrap 5 HTML Multipurpose Admin Dashboard Template - Start HTML Pro by KeenThemes">
+        <meta property="og:url" content="https://keenthemes.com/products/start-html-pro">
+        <meta property="og:site_name" content="Start HTML Pro by Keenthemes">
+        <link rel="canonical" href="https://preview.keenthemes.com/start-html-pro">
+        <link rel="shortcut icon" href="{% static 'users/favicon.ico' %}">
+
+        <!--begin::Fonts(mandatory for all pages)-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700">        <!--end::Fonts-->
+
+
+
+                    <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+                            <link href="{% static 'users/css/plugins.bundle.css' %}" rel="stylesheet" type="text/css">
+                            <link href="{% static 'users/css/style.bundle.css' %}" rel="stylesheet" type="text/css">
+                        <!--end::Global Stylesheets Bundle-->
+
+                    <!--begin::Google tag-->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-37564768-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-37564768-1');
+</script>
+</head>
+
+<body class="safari-mode bg-white">
+<div class="d-flex flex-column flex-root">
+
+    <div class="d-flex flex-column flex-lg-row flex-column-fluid" id="kt_login">
+    <!--begin::Aside-->
+    <div class="d-flex flex-column flex-lg-row-auto bg-primary w-lg-600px pt-15 pt-lg-0">
+        <!--begin::Aside Top-->
+        <div class="d-flex flex-row-fluid flex-center flex-column-auto flex-column text-center mb-5">
+            <!--begin::Aside Logo-->
+            <a href="/start/index.html" class="mb-6">
+                <img alt="Logo" src="{% static 'users/images/logo-default.svg' %}" class="h-50px h-lg-75px">
+            </a>
+            <!--end::Aside Logo-->
+
+            <!--begin::Aside Subtitle-->
+            <h3 class="fw-bold fs-2x text-white lh-lg">
+                Discover Start<br>
+                with great build tools
+            </h3>
+            <!--end::Aside Subtitle-->
+        </div>
+        <!--end::Aside Top-->
+
+        <!--begin::Illustration-->
+        <div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-100px min-h-lg-350px" style="background-image: url({% static 'users/start/assets/media/illustrations/sigma-1/2.png' %}">
+        </div>
+        <!--end::Illustration-->
+    </div>
+    <!--begin::Aside-->
+
+    <!--begin::Content-->
+    <div class="login-content flex-lg-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden py-10 py-lg-20 px-10 p-lg-7 mx-auto mw-450px w-100">
+        <!--begin::Wrapper-->
+        <div class="d-flex flex-column-fluid flex-center py-10">
+
+            <!--begin::Signup Form-->
+            <form class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework animate__animated animate__backInUp" novalidate="novalidate" style="animation-duration: 0.6s;" method="post">
+                {% csrf_token %}
+
+                <!--begin::Title-->
+                <div class="pb-5 pb-lg-15">
+                    <h3 class="fw-bold text-gray-900 display-6">Sign Up</h3>
+                    <p class="text-muted fw-semibold fs-3">Enter your details to create your account</p>
+                </div>
+
+                {{ form.as_p }}
+
+
+                <!--begin::Form group-->
+                <div class="fv-row mb-10 fv-plugins-icon-container">
+                    <div class="form-check form-check-inline form-check-custom form-check-solid mb-5">
+                        <input class="form-check-input" type="checkbox" name="agree" id="kt_login_toc_agree" value="1">
+                        <label class="form-check-label fw-semibold text-gray-600" for="kt_login_toc_agree">
+                            Я согласен с <a href="#" class="ms-1">условиями и положениями компании.</a>.
+                        </label>
+                    </div>
+                <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div></div>
+                <!--end::Form group-->
+
+                <!--begin::Form group-->
+                <div class="d-flex flex-wrap pb-lg-0 pb-5">
+                    <button type="submit" class="btn btn-primary fw-bold fs-6 px-8 py-4 my-3 me-4">Зарегистрироваться</button>
+                    <button type="button" class="btn btn-light-primary fw-bold fs-6 px-8 py-4 my-3">Отмена</button>
+                </div>
+                <!--end::Form group-->
+            </form>
+            <!--end::Signup Form-->
+        </div>
+        <!--end::Wrapper-->
+
+        <!--begin::Footer-->
+        <div class="d-flex justify-content-lg-start justify-content-center align-items-center py-2 py-lg-7 py-lg-0 fs-5 fw-bold">
+            <a href="https://keenthemes.com" target="_blank" class="text-gray-600 text-hover-primary">About</a>
+            <a href="https://devs.keenthemes.com" target="_blank" class="text-gray-600 text-hover-primary ms-10">Support</a>
+            <a href="https://keenthemes.com/products/start-html-pro" target="_blank" class="text-gray-600 text-hover-primary ms-10 ">
+                                    Purchase
+                            </a>
+        </div>
+        <!--end::Footer-->
+    </div>
+    <!--end::Content-->
+</div>
+
+</div>
+
+
+<script src="{% static 'users/js/plugins.bundle.js' %}"></script>
+<script src="{% static 'users/js/scripts.bundle.js' %}"></script>
+
+<script src="{% static 'users/js/login.js' %}"></script>
+
+</body>
+</html>
