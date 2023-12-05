@@ -1,0 +1,123 @@
+{% extends 'finance_app/base.html' %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-bs-theme-mode="light" data-bs-theme="light">
+<head>
+        <title>Start HTML Pro - Bootstrap 5 HTML Multipurpose Admin Dashboard Template - Start HTML Pro by KeenThemes</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Check out all the features of the Start admin panel. A large number of templates, components and widgets.">
+        <meta name="keywords" content="Start, bootstrap, bootstrap 5, admin themes, free admin themes, bootstrap admin, bootstrap dashboard, html admin theme, html template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Start HTML Pro - Bootstrap 5 HTML Multipurpose Admin Dashboard Template - Start HTML Pro by KeenThemes">
+        <meta property="og:url" content="https://keenthemes.com/products/start-html-pro">
+        <meta property="og:site_name" content="Start HTML Pro by Keenthemes">
+        <link rel="canonical" href="https://preview.keenthemes.com/start-html-pro">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700">
+        <link href="{% static 'finance_app/css/leaflet.bundle.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'finance_app/css/datatables.bundle.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'finance_app/css/plugins.bundle.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'finance_app/css/style.bundle.css' %}" rel="stylesheet" type="text/css">
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-37564768-1"></script>
+        <style>
+            @media (min-width: 992px) {
+              .aside-secondary-disabled.aside-fixed .wrapper {
+                padding-left: 0px;
+              }
+            }
+        </style>
+    </head>
+    <!--end::Head-->
+
+    <!--begin::Body-->
+    <body id="kt_body" class="safari-mode header-fixed header-tablet-and-mobile-fixed aside-enabled aside-fixed aside-primary-enabled aside-secondary-disabled">
+
+    {% block content %}
+        <div class="d-flex flex-column flex-column-fluid">
+											<!--begin::toolbar-->
+<div class="toolbar" id="kt_toolbar">
+    <div class=" container-xxl  d-flex flex-stack flex-wrap flex-sm-nowrap mt-5 mb-5">
+		<!--begin::Info-->
+        <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-1">
+			<!--begin::Title-->
+            <h3 class="text-gray-900 fw-bold my-1">
+                Account
+                            </h3>
+			<!--end::Title-->
+
+            				<!--begin::Breadcrumb-->
+                <ul class="breadcrumb breadcrumb-line bg-transparent text-muted fw-semibold p-0 my-1 fs-7">
+                                                                        <li class="breadcrumb-item">
+                                                                    <a href="/start/index.html" class="text-muted text-hover-primary">
+                                        Home                                    </a>
+                                                            </li>
+                                                                                                <li class="breadcrumb-item">
+                                                                    Profile                                                            </li>
+                    <li class="breadcrumb-item text-gray-900">
+                                Аккаунт                            </li>
+                                                            </ul>
+				<!--end::Breadcrumb-->
+                    </div>
+		<!--end::Info-->
+
+        		<!--begin::Nav-->
+        <div class="d-flex align-items-center flex-nowrap text-nowrap overflow-auto py-1">
+                            <a href="/start/profile/overview.html" class="btn btn-active-accent  fw-bold ">
+                    Overview                </a>
+                            <a href="/start/profile/account.html" class="btn btn-active-accent active fw-bold ms-3">
+                    Account                </a>
+                            <a href="/start/profile/settings.html" class="btn btn-active-accent  fw-bold ms-3">
+                    Settings                </a>
+                    </div>
+		<!--end::Nav-->
+            </div>
+</div>
+<!--end::toolbar-->
+
+                    <!--begin::Content-->
+                    <div class="content fs-6 d-flex flex-column-fluid" id="kt_content">
+						<!--begin::Container-->
+                        <div class=" container-xxl ">
+                            <!--begin::Profile Account-->
+                        <div class="card">
+                            <!--begin::Form-->
+                            <form class="form d-flex justify-content-center" method="post">
+                                {% csrf_token %}
+                                <div class="card-body mw-800px py-20">
+                                    <!--begin::Form row-->
+                                    <div class="row mb-8">
+                                        <div class="col-lg-9">
+                                            <div class="spinner spinner-sm spinner-primary spinner-right">
+                                                {{ form.as_p }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-lg-3 col-form-label"></label>
+                                        <div class="col-lg-9">
+                                            <button type="submit" class="btn btn-primary fw-bold px-6 py-3 me-3">Сохранить</button>
+                                            <button type="reset" class="btn btn-color-gray-600 btn-active-light-primary fw-bold px-6 py-3">Отмена</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                    <!--end::Content-->
+				</div>
+    {% endblock %}
+    <script src="{% static 'finance_app/js/plugins.bundle.js' %}"></script>
+    <script src="{% static 'finance_app/js/scripts.bundle.js' %}"></script>
+    <script src="{% static 'finance_app/js/leaflet.bundle.js' %}"></script>
+    <script src="{% static 'finance_app/js/datatables.bundle.js' %}"></script>
+    <script src="{% static 'finance_app/js/widgets.js' %}"></script>
+    <script src="{% static 'finance_app/js/chat.js' %}"></script>
+    <script src="{% static 'finance_app/js/create-campaign.js' %}"></script>
+    <script src="{% static 'finance_app/js/select-location.js' %}"></script>
+    <script src="{% static 'finance_app/js/users-search.js' %}"></script>
+</body>
+</html>

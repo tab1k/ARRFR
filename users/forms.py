@@ -1,6 +1,6 @@
 from django import forms
 from users.models import CustomUser
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 
 
 class UserLoginForm(AuthenticationForm):
@@ -43,3 +43,18 @@ class UserRegistrationForm(UserCreationForm):
         label='Номер телефона',
         widget=forms.TextInput(attrs={'class': 'form-control form-control-lg form-control-solid', 'placeholder': '8 (707) 777 77 77'}),
     )
+
+
+class UserProfileForm(UserChangeForm):
+    class Meta:
+        model = CustomUser
+        fields = ('first_name', 'last_name', 'email', 'phone_number', 'age')
+
+    def __init__(self, *args, **kwargs):
+        super(UserProfileForm, self).__init__(*args, **kwargs)
+        for field_name in self.fields:
+            self.fields['first_name'].widget.attrs['class'] = 'form-control form-control-lg form-control-solid'
+            self.fields['last_name'].widget.attrs['class'] = 'form-control form-control-lg form-control-solid'
+            self.fields['email'].widget.attrs['class'] = 'form-control form-control-lg form-control-solid'
+            self.fields['phone_number'].widget.attrs['class'] = 'form-control form-control-lg form-control-solid'
+            self.fields['age'].widget.attrs['class'] = 'form-control form-control-lg form-control-solid'

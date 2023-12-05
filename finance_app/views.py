@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.template import TemplateDoesNotExist
@@ -7,7 +8,7 @@ from finance_app.models import FinancialOrganization, Executive
 from users.models import UserPosition
 
 
-class IndexView(ListView):
+class IndexView(LoginRequiredMixin, ListView):
     model = FinancialOrganization
     template_name = 'finance_app/index.html'
     context_object_name = 'organizations'
@@ -26,7 +27,7 @@ class IndexView(ListView):
         return context
 
 
-class ExecutiveListView(ListView):
+class ExecutiveListView(LoginRequiredMixin, ListView):
     model = Executive
     template_name = 'finance_app/executive_list.html'
     context_object_name = 'executive'
@@ -38,5 +39,6 @@ class ExecutiveListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['position'] = UserPosition.objects.all()
+        context['organization'] = FinancialOrganization.objects.all()
         return context
 
