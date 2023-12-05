@@ -60,7 +60,6 @@
 
 7. Вот вы и в Django проекте.
 
-8. Visit [http://localhost/](http://localhost/) to see the Nginx welcome page.
 
 ## Дополнительная информация
 
