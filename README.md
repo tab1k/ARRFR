@@ -21,7 +21,7 @@
 2. Перейдите в каталог проекта:
 
     ```bash
-    cd your-django-docker-repo
+    cd /ARRFR
     ```
 
 3. База данных:
