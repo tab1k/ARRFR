@@ -58,8 +58,7 @@ ROOT_URLCONF = "arrfr.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
-        ,
+        "DIRS": [BASE_DIR / 'templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -80,13 +79,13 @@ WSGI_APPLICATION = "arrfr.wsgi.application"
 
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        'NAME': os.getenv('DB_NAME', 'arrfr'),
-        'USER': os.getenv('DB_USER', 'tab1k'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'TOBI8585'),
-        'HOST': 'localhost',  # Изменено на localhost
-        'PORT': os.getenv('DB_PORT', 5432),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'arrfr',
+        'USER': 'tab1k',
+        'PASSWORD': 'TOBI8585',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 
