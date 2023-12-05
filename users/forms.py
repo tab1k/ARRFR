@@ -1,5 +1,5 @@
 from django import forms
-from users.models import CustomUser
+from users.models import CustomUser, UserPosition
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 
 
@@ -58,3 +58,12 @@ class UserProfileForm(UserChangeForm):
             self.fields['email'].widget.attrs['class'] = 'form-control form-control-lg form-control-solid'
             self.fields['phone_number'].widget.attrs['class'] = 'form-control form-control-lg form-control-solid'
             self.fields['age'].widget.attrs['class'] = 'form-control form-control-lg form-control-solid'
+
+
+class UserPositionFilterForm(forms.Form):
+    position = forms.ModelChoiceField(
+        queryset=UserPosition.objects.all(),
+        empty_label="Все",
+        required=False,
+        widget=forms.Select(attrs={'class': 'form-select'},)
+    )

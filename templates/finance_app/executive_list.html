@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 {% load static  %}
 <html lang="en" data-bs-theme-mode="light" data-bs-theme="light"><!--begin::Head--><head>
-        <title>{{ organization.name }}</title>
+        <title>Руководители</title>
         <meta charset="utf-8">
         <meta name="description" content="Check out all the features of the Start admin panel. A large number of templates, components and widgets.">
         <meta name="keywords" content="Start, bootstrap, bootstrap 5, admin themes, free admin themes, bootstrap admin, bootstrap dashboard, html admin theme, html template">
@@ -44,143 +44,132 @@
                     <div class="content fs-6 d-flex flex-column-fluid" id="kt_content">
 						{% block content %}
                             <div class=" container-xxl ">
+                                <div class="row g-0 g-xl-5 g-xxl-8">
+                                    <div class="col-xxl-4">
+                                        <!--begin::Stats Widget 6-->
+                                        <div class="card card-stretch mb-5 mb-xxl-8">
 
 
-<!--begin::Row-->
-<div class="row g-0 g-xl-5 g-xxl-8">
-    <div class="col-xxl-4">
-        <!--begin::Stats Widget 6-->
-<div class="card card-stretch mb-5 mb-xxl-8">
+                                            <!--begin::Body-->
+                                            <div class="card-body">
+                                                <!--begin::Stats-->
+                                                <div class="pt-9">
+                                                        <div class="row">
+                                                            <div class="col me-n2 mb-5">
+                                                                <form method="get" action="{% url 'finance_app:executive' organization_id %}">
+                                                                    {{ filter_form.as_p }}
+                                                                    <button type="submit" class="btn btn-primary fw-bold fs-6 px-8 py-4 my-3 me-4">Применить фильтр</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                </div>
+
+                                                <!--end::Stats-->
+                                            </div>
+
+                                            <!--end::Body-->
+
+                                        </div>
 
 
-    <!--begin::Body-->
-    <div class="card-body">
-        <!--begin::Stats-->
-        <div class="pt-9">
-            {% for p in position %}
-            <div class="row">
-                <div class="col me-n2 mb-5">
-                    <button type="button" class="btn btn-outline btn-bg-light btn-color-gray-600 btn-active-light-primary border-dashed border-active px-6 py-7 text-start w-100 min-w-150px" onclick="filterExecutives('{{ p.position }}')">
-                        <i class="ki-duotone ki-add-files fs-2x ms-n1"></i>
-                        <span class="text-gray-800 fw-bold fs-6 d-block pt-6">{{ p.position }}</span>
-                    </button>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+                                    </div>
+                                        <div class="col-xl-8">
 
-        <!--end::Stats-->
-    </div>
+                                            <div class="card card-stretch">
 
-    <!--end::Body-->
+                                                <div class="card-header border-0 pt-5">
+                                                    <h3 class="card-title align-items-start flex-column">
+                                                        <span class="card-label fw-bold text-gray-900 fs-3">Руководители</span>
+                                                        <span class="text-muted mt-2 fw-semibold fs-6">За всю историю было <b style="color: black;">{{ executive|length }}</b> руководителей.</span>
+                                                    </h3>
+                                                    <div class="card-toolbar">
+                                                        <ul class="nav nav-pills nav-pills-sm nav-light">
+                                                            <li class="nav-item">
+                                                                <a class="nav-link btn btn-active-light btn-color-muted py-2 px-4 active fw-bold me-2" data-bs-toggle="tab" href="#kt_tab_pane_2_1">Активные</a>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <a class="nav-link btn btn-active-light btn-color-muted py-2 px-4 fw-bold me-2" data-bs-toggle="tab" href="#kt_tab_pane_2_2">Не активные</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
 
-</div>
+                                                <div class="card-body pt-3 pb-0 mt-n3 mb-5">
+                                                    <div class="tab-content mt-4" id="myTabTables2" >
+                                                        <!--begin::Tap pane-->
+                                                        <div class="tab-pane fade show active" id="kt_tab_pane_2_1" role="tabpanel" aria-labelledby="kt_tab_pane_2_1">
+                                                            <!--begin::Table-->
+                                                            <div id="executives-container" class="table-responsive">
+                                                                <table class="table table-borderless align-middle">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="p-0 w-50px">ID</th>
+                                                                            <th class="p-0 min-w-150px">Имя</th>
+                                                                            <th class="p-0 min-w-120px">Данные</th>
+                                                                            <th class="p-0 min-w-70px">Должность</th>
 
-<!--end::Stats Widget 6-->
-    </div>
-        <div class="col-xl-8">
-         <!--begin::Table Widget 2-->
-            <div class="card card-stretch">
-                <!--begin::Header-->
-                <div class="card-header border-0 pt-5">
-                    <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold text-gray-900 fs-3">Руководители</span>
-                        <span class="text-muted mt-2 fw-semibold fs-6">За всю историю было <b style="color: black;">{{ executive|length }}</b> руководителей.</span>
-                    </h3>
-                    <div class="card-toolbar">
-                        <ul class="nav nav-pills nav-pills-sm nav-light">
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-active-light btn-color-muted py-2 px-4 active fw-bold me-2" data-bs-toggle="tab" href="#kt_tab_pane_2_1">Активные</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-active-light btn-color-muted py-2 px-4 fw-bold me-2" data-bs-toggle="tab" href="#kt_tab_pane_2_2">Не активные</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-    <!--end::Header-->
+                                                                            <hr>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        {% for e in executive %}
 
-    <!--begin::Body-->
-            <div class="card-body pt-3 pb-0 mt-n3">
-                <div class="tab-content mt-4" id="myTabTables2" >
-                    <!--begin::Tap pane-->
-                    <div class="tab-pane fade show active" id="kt_tab_pane_2_1" role="tabpanel" aria-labelledby="kt_tab_pane_2_1">
-                        <!--begin::Table-->
-                        <div id="executives-container" class="table-responsive">
-                            <table class="table table-borderless align-middle">
-                                <thead>
-                                    <tr>
-                                        <th class="p-0 w-50px">ID</th>
-                                        <th class="p-0 min-w-150px">Имя</th>
-                                        <th class="p-0 min-w-120px">Данные</th>
-                                        <th class="p-0 min-w-70px">Должность</th>
+                                                                        <tr>
 
-                                        <hr>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for e in executive %}
+                                                                            <td class="px-0 py-3">
+                                                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">{{ e.id }}</a>
+                                                                            </td>
+                                                                            <td class="px-0">
+                                                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">{{ e.full_name }}</a>
+                                                                                <span class="text-muted fw-semibold d-block mt-1">{{ e.iin }}</span>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">{{ e.contact_phone }}</a>
+                                                                                <span class="text-muted fw-semibold d-block mt-1">{{ e.contact_email }}</span>
+                                                                            </td>
+                                                                            <td class="text-end">
+                                                                                <span class="text-gray-800 fw-bold d-block fs-6">
+                                                                                    {{ e.position }}
+                                                                                </span>
+                                                                                <span class="text-muted fw-semibold d-block mt-1 fs-7">
+                                                                                    от {{ e.start_date }} {% if e.end_date %} до {{ e.end_date }} {% else %} по настоящее время. {% endif %}
+                                                                                </span>
+                                                                            </td>
 
-                                    <tr>
+                                                                            <td class="text-end pe-0">
+                                                                                <a href="#" class="btn btn-icon btn-bg-light btn-active-primary btn-sm">
+                                                                                    <i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i>                                    </a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        {% endfor %}
 
-                                        <td class="px-0 py-3">
-                                            <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">{{ e.id }}</a>
-                                        </td>
-                                        <td class="px-0">
-                                            <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">{{ e.full_name }}</a>
-                                            <span class="text-muted fw-semibold d-block mt-1">{{ e.iin }}</span>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">{{ e.contact_phone }}</a>
-                                            <span class="text-muted fw-semibold d-block mt-1">{{ e.contact_email }}</span>
-                                        </td>
-                                        <td class="text-end">
-                                            <span class="text-gray-800 fw-bold d-block fs-6">
-                                                {{ e.position }}
-                                            </span>
-                                            <span class="text-muted fw-semibold d-block mt-1 fs-7">
-                                                от {{ e.start_date }} {% if e.end_date %} до {{ e.end_date }} {% else %} по настоящее время. {% endif %}
-                                            </span>
-                                        </td>
-
-                                        <td class="text-end pe-0">
-                                            <a href="#" class="btn btn-icon btn-bg-light btn-active-primary btn-sm">
-                                                <i class="ki-duotone ki-arrow-right fs-4"><span class="path1"></span><span class="path2"></span></i>                                    </a>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <!--end::Table-->
-                    </div>
-            <!--end::Tap pane-->
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <!--end::Table-->
+                                                        </div>
 
 
 
-                            <script src="{% static 'finance_app/js/plugins.bundle.js' %}"></script>
-                            <script src="{% static 'finance_app/js/scripts.bundle.js' %}"></script>
+                                                            <script src="{% static 'finance_app/js/plugins.bundle.js' %}"></script>
+                                                            <script src="{% static 'finance_app/js/scripts.bundle.js' %}"></script>
 
-                            <script src="{% static 'finance_app/js/leaflet.bundle.js' %}"></script>
-                            <script src="{% static 'finance_app/js/datatables.bundle.js' %}"></script>
+                                                            <script src="{% static 'finance_app/js/leaflet.bundle.js' %}"></script>
+                                                            <script src="{% static 'finance_app/js/datatables.bundle.js' %}"></script>
 
-                            <script src="{% static 'js/widgets.js' %}"></script>
-                            <script src="{% static 'js/chat.js' %}"></script>
-                            <script src="{% static 'js/create-campaign.js' %}"></script>
-                            <script src="{% static 'js/select-location.js' %}"></script>
-                            <script src="{% static 'js/users-search.js' %}"></script>
+                                                            <script src="{% static 'js/widgets.js' %}"></script>
+                                                            <script src="{% static 'js/chat.js' %}"></script>
+                                                            <script src="{% static 'js/create-campaign.js' %}"></script>
+                                                            <script src="{% static 'js/select-location.js' %}"></script>
+                                                            <script src="{% static 'js/users-search.js' %}"></script>
 
-
-
-
-						{% endblock %}
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
+                                                        {% endblock %}
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                                        </div>
                     </div>
                 </div>
             </div>
