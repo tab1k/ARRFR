@@ -79,13 +79,17 @@ WSGI_APPLICATION = "arrfr.wsgi.application"
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'arrfr',
-        'USER': 'tab1k',
-        'PASSWORD': 'TOBI8585',
-        'HOST': 'db',
-        'PORT': '5432',
+    # "default": {
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": BASE_DIR / "db.sqlite3",
+    # }
+    "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            'NAME': os.getenv('DB_NAME', 'arrfr_db'),
+            'USER': os.getenv('DB_USER', 'arrfr'),
+            'PASSWORD': os.getenv('DB_PASSWORD', 'TOBI8585'),
+            'HOST': os.getenv('DB_HOST', 'db'),
+            'PORT': os.getenv('DB_PORT', 5432),
     }
 }
 
