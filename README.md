@@ -51,20 +51,7 @@
     docker-compose up -d
     ```
 
-5. Примените миграцию и создайте суперпользователя:
-
-    ```bash
-    docker-compose run web python manage.py migrate
-    docker-compose run web python manage.py createsuperuser
-    ```
-
-6. Загрузите фикстуры (если нужно):
-
-    ```bash
-    docker-compose run web python manage.py loaddata fixtures/initial_data.json
-    ```
-
-7. Вот вы и в Django проекте.
+5. Вот вы и в Django проекте.
 
 
 ## Дополнительная информация
