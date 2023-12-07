@@ -18,26 +18,26 @@
     git clone https://github.com/tab1k/ARRFR.git
     ```
 
-2. Перейдите в каталог проекта:
+   2. Перейдите в каталог проекта:
 
-    ```bash
-    cd /ARRFR
-    ```
+       ```bash
+       cd /ARRFR
+       ```
 
-3. База данных:
+      3. База данных:
 
-    ```python
-    DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'arrfr',
-        'USER': 'tab1k',
-        'PASSWORD': 'TOBI8585',
-        'HOST': 'db',
-        'PORT': '5432',
-    }
-}
-    ```
+          ```python
+          DATABASES = {
+          "default": {
+            "ENGINE": "django.db.backends.postgresql",
+               'NAME': os.getenv('DB_NAME', 'arrfr_db'),
+               'USER': os.getenv('DB_USER', 'arrfr'),
+               'PASSWORD': os.getenv('DB_PASSWORD', 'TOBI8585'),
+               'HOST': os.getenv('DB_HOST', 'db'),
+               'PORT': os.getenv('DB_PORT', 5432),
+          }
+   }
+       ```
 
 4. Создайте и запустите контейнеры Docker:
 
@@ -45,20 +45,8 @@
     docker-compose up -d
     ```
 
-5. Примените миграцию и создайте суперпользователя:
 
-    ```bash
-    docker-compose run web python manage.py migrate
-    docker-compose run web python manage.py createsuperuser
-    ```
-
-6. Загрузите фикстуры (если нужно):
-
-    ```bash
-    docker-compose run web python manage.py loaddata fixtures/initial_data.json
-    ```
-
-7. Вот вы и в Django проекте.
+5Вот вы и в Django проекте.
 
 
 ## Дополнительная информация
